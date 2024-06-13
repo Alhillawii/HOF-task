@@ -56,7 +56,7 @@ const num = [3, 2, 7, 6, 5];
 let sum = 0;
 
 num.forEach(function(number) {
-    sum += number;
+    sum + number;
 });
 
 console.log(sum);
@@ -105,8 +105,8 @@ console.log(tr);
 
 //task11//
 
-const duplicates = [11, 11, 22,22, 44, 44, 56];
-const unique = duplicates.filter(function(value, index, array) {
+const duplicates = [11, 11, 22,22, 44, 44, 56 , 56];
+const unique = duplicates.filter(function(value, index , array) {
     return array.indexOf(value) == index;
 });
 
@@ -232,14 +232,11 @@ console.log(absolute);
 
  //task24//
 
- const name = ["jojo","ayah","ayda"];
- let count = 0;
- Name.forEach(function(string){
-    if ( string.includes('a')){
-        count++;
-    }
- })
- console.log(count);
+//  const Name = ["jojo","ayah","ayda"];
+//  Name.forEach(function(string){
+//     if ( string.includes('a'))
+//  })
+//  console.log(includes);
 
  //task25//
 
@@ -410,24 +407,48 @@ callTwice(myCallback);
 
 //task39//
 
-// function applyMultipleTimes(func, times) {
-//     return function(input) {
-//         let result = input;
-//         for (let i = 0; i < times; i++) {
-//             result = func(result);
+ //???
+
+
+  //task40//
+  
+//   function com(func,ti){
+//     return function(d){
+//         let result = 0;
+//         for (let i = 0; i <= ti; i++) {
+//             result = result + func(d);
 //         }
-//         return result;
+//             return result;
 //     };
-// }
+//   }
+   
+//    function sq(d) {
+//     return d+d
+//    }
+//    const comsq = com(sq, (5));
+//    const result = comsq(4);
 
-// function multiplyByTwo(number) {
-//     return number * 2;
-// }
-
-// const applyMultiplyByTwoThrice = applyMultipleTimes(multiplyByTwo, 3);
-// console.log(applyMultiplyByTwoThrice(2)); 
+//    console.log(result);
 
 
-  
- 
-  
+
+   function reapetOperation (fun , times){
+    return function (number){
+        let result = number;
+        for (let i = 1; i <= times; i++) {
+          result = fun(result)
+            
+        }
+        return result;
+    }
+   }
+
+    const addTwo = x => x + 2; ///original function
+    const addTwofivethimes =  reapetOperation(addTwo , 5);
+
+    console.log(addTwofivethimes(10));
+
+
+
+
+
